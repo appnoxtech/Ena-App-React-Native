@@ -26,6 +26,10 @@ import Admin from '../Admin/Admin';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Profile from '../Profile/Profile';
 import OrderHistory from '../Order/OrderHistory';
+import WareHouse from '../../Component/Admin/WareHouse/WareHouse';
+import AdminOrder from '../../Component/Admin/Order/AdminOrder';
+import Delivery from '../../Component/Admin/Delivery/Delivery';
+import Distribution from '../../Component/Admin/Distribution/Distribution';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -358,6 +362,12 @@ const Routes = () => {
     <Stack.Navigator >
       <Stack.Screen name="DashBoard" children={() => <DrawerRoute navigation={navigation} />} options={{ headerShown: false }} />
       <Stack.Screen name='OrderHistory' component={OrderHistory} options={{ headerShown: false }} />
+      <Stack.Screen name='WareHouse' component={WareHouse} options={{ headerShown: false }} />
+      <Stack.Screen name='AdminOrder' component={AdminOrder} options={{ headerShown: false }} />
+      <Stack.Screen name='Delivery' component={Delivery} options={{ headerShown: false }} />
+      <Stack.Screen name='Distribution' component={Distribution} options={{ headerShown: false }} />
+
+
 
     </Stack.Navigator>
   );

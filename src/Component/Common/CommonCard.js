@@ -5,13 +5,13 @@ import {  iconSize, lightFont, mediumFont, mediumText,} from '../DesignTheme';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-const CommonCard = ({ item }) => {
+const CommonCard = ({ item,status}) => {
   // console.log(item)
 
 
   return (
     <View style={{
-      width: '95%',
+      width: '90%',
       alignSelf: 'center',
       paddingVertical: moderateScale(5),
       paddingHorizontal: scale(10),
@@ -33,7 +33,7 @@ const CommonCard = ({ item }) => {
         <Text style={styles.userDeatilText}> 921342222</Text>
       </View>
 
-      <View style={[styles.headingView, { alignItems: 'center' }]}>
+     {status !=1&& <View style={[styles.headingView, { alignItems: 'center' }]}>
         <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end' }}>
           <TouchableOpacity style={{ marginHorizontal: scale(10) }}>
             <Text style={{ fontFamily: mediumFont, color: '#4285f4' }}>View</Text>
@@ -45,7 +45,7 @@ const CommonCard = ({ item }) => {
             <Ionicons name='trash' size={iconSize - 5} color={'#ff0000'} />
           </TouchableOpacity>
         </View>
-      </View>
+      </View>}
     </View>
   )
 }

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { iconSize, lightFont, mainColor, mediumFont, mediumText, normalText } from '../../Component/DesignTheme'
+import { boldFont, iconSize, lightFont, mainColor, mediumFont, mediumText, normalText } from '../../Component/DesignTheme'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { useNavigation } from '@react-navigation/native'
 import { moderateScale, scale } from 'react-native-size-matters'
@@ -11,9 +11,24 @@ const OrderHistory = ({ route }) => {
     const navigetion = useNavigation()
     const [orderStatus, setOrderStatus] = useState('upComming')
     const [orderTrakeModal, setOrderTrakeModal] = useState(false)
+    const [trackHistory,setTrackHistory]=useState(false)
     const orderStatusHandler = (type) => {
         setOrderStatus(type)
     }
+    const data=[
+        {status:'order Placed'},
+        {status:'order Confirmed'},
+        {status:'order Processed'},
+        {status:'order Shiped'},
+        {status:'order of Deliverd'},
+
+
+        // {status:'order Placed'},
+        // {status:'order Placed'},
+        // {status:'order Placed'},
+        // {status:'order Placed'},
+
+    ]
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -58,7 +73,7 @@ const OrderHistory = ({ route }) => {
                                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', }}>
                                             <View>
                                                 <Text style={{ fontSize: normalText + 1, fontFamily: mediumFont }}>Order#:99999</Text>
-                                                <Text style={{ fontFamily: lightFont, fontSize: normalText, color: '#727272', marginTop: moderateScale(3) }}>20-Dec-2019-3:00PM</Text>
+                                                <Text style={styles.date}>20-Dec-2019-3:00PM</Text>
                                             </View>
                                             <View style={{ height: moderateScale(70), width: moderateScale(60) }}>
                                                 <Image source={require('../../../assets/ProductImages/c.jpeg')} style={{ height: '100%', width: '100%' }} resizeMode='contain' />
@@ -70,35 +85,48 @@ const OrderHistory = ({ route }) => {
                                             <View>
                                                 <Text style={{ fontSize: normalText + 1, fontFamily: mediumFont, color: mainColor }}>Esimate Deleivery 21 Dec</Text>
                                             </View>
-                                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                           {false&& <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                                 <Text style={{
                                                     fontFamily: lightFont, fontSize: normalText, color: '#727272', marginTop: moderateScale(3), marginRight: scale
                                                         (25)
                                                 }}>Rating</Text>
-                                                {[1, 1, 1, 1, 1].map((rate, ind) => {
+                                                {false&&[1, 1, 1, 1, 1].map((rate, ind) => {
                                                     return (
                                                         <TouchableOpacity>
                                                             <AntDesign name={true ? 'star' : 'staro'} color={'#ff9529'} size={iconSize-13}/>
                                                         </TouchableOpacity>
                                                     )
                                                 })}
-                                            </View>
+                                            </View>}
+                                        </View>
+                                        {/* track order  */}
+
+                                        <View style={{alignSelf:'flex-end'}}>
+                                            <TouchableOpacity onPress={()=>setTrackHistory(!trackHistory)}
+                                            style={{borderWidth:1,padding:moderateScale(6),borderColor:mainColor,borderRadius:moderateScale(4)}}>
+                                                <Text style={{fontFamily:boldFont,fontSize:moderateScale(13),color:mainColor}}>{trackHistory?'Hide Infromation':'Track History'}</Text>
+                                            </TouchableOpacity>
                                         </View>
                                     </View>
 
-                                    {false&&
+                                    {trackHistory&&
                                         <View style={{marginTop:moderateScale(20)}}>
-                                        {[1,1,1,].map((d,i)=>{
+                                        {data.map((d,i)=>{
                                             return(
-                                                <View style={{flexDirection:'row',}}>
+                                                <View style={{flexDirection:'row',alignItems:'center'}}>
                                                 <View style={{alignItems:'flex-start'}}>
-                                                    <View style={{width:10,height:10,borderRadius:10,backgroundColor:'#000'}}></View>
-                                                    <Text style={{borderWidth:1,width:1,backgroundColor:'#000',marginLeft:scale(3),height:moderateScale(40)}}></Text>
+                                                    <View style={{width:10,height:10,borderRadius:10,backgroundColor:'#ff9529'}}></View>
+                                                    <Text style={{borderWidth:1,width:1,backgroundColor:'#ff9529',marginLeft:scale(3),height:moderateScale(40),borderColor:'#ff9529'}}></Text>
+                                                    {data.length-1 ==i&&<View style={{width:10,height:10,borderRadius:10,backgroundColor:'#ff9529'}}></View>}
+
                                                 </View>
         
-                                                <View style={{flexDirection:'row',marginLeft:scale(20)}}>
-                                                    <AntDesign name='star' size={moderateScale(26)}/>
-                                                    <Text>  Order Placed</Text>
+                                                <View style={{flexDirection:'row',marginLeft:scale(10)}}>
+                                                    <AntDesign name='star' size={moderateScale(26)} color='#ff9529'/>
+                                                    <View>
+                                                    <Text style={{marginLeft:scale(10),fontFamily:mediumFont,textTransform:'capitalize'}}>{d.status}</Text>
+                                                    <Text style={[styles.date,{marginLeft:scale(10)}]}>{new Date().toDateString()}</Text>
+                                                    </View>
                                                 </View>
                                             </View>
                                             )
@@ -144,5 +172,6 @@ const styles = StyleSheet.create({
         fontSize: normalText,
         color: mainColor,
         fontFamily: mediumFont
-    }
+    },
+    date:{ fontFamily: lightFont, fontSize: normalText, color: '#727272', marginTop: moderateScale(3) }
 })

@@ -17,4 +17,5 @@ export const h4=moderateScale(12)
 export const mediumText=moderateScale(14)
 export const normalText=moderateScale(13)
 export const samllText=moderateScale(12)
+export const addIcon=moderateScale(45)
 

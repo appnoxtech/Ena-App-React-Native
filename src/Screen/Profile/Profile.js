@@ -33,9 +33,9 @@ const Profile = () => {
                   <NavigationCard name={'My Order'}/>
               </TouchableOpacity>
 
-              <TouchableOpacity>
+              {/* <TouchableOpacity>
               <NavigationCard name={'Wish List'}/>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
               <TouchableOpacity onPress={()=>navigation.navigate('Cart')}>
               <NavigationCard name={'Cart'}/>
