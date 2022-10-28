@@ -12,7 +12,7 @@ const AddDeleiveryModal = ({showAddDeleviryModal,setShowAddDeleviryModal}) => {
                 <SafeAreaView style={{ flex: 1 }}>
                     <View style={styles.cconatiner}>
                         <View style={styles.ModalCard}>
-                            <Text style={{fontFamily:mediumFont,paddingTop:moderateScale(10),marginLeft:scale(10)}}>  Enter Details</Text>
+                            <Text style={{fontFamily:mediumFont,paddingTop:moderateScale(20),marginLeft:scale(10)}}>  Enter Details</Text>
                             {/* TextInput Box Here */}
                             <View style={{marginTop:moderateScale(10)}}>
                             <View style={styles.inputConatiner}>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     ModalCard:{
         width:'90%',
-        height:moderateScale(240),
+        height:moderateScale(250),
         backgroundColor:white,
         elevation:2,
         borderRadius:moderateScale(6)

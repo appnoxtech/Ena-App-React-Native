@@ -87,13 +87,13 @@ export default function DashBoard() {
 
     
     const data = [
-        { name: 'Fruit', id: 1,img:require('../../../assets/ProductImages/A.jpeg')},
-        { name: 'VegeTable', id: 2 ,img:require('../../../assets/ProductImages/b.jpeg')},
+        { name: 'Ananas', id: 1,img:require('../../../assets/ProductImages/A.jpeg')},
+        { name: 'Ananas Avio', id: 2 ,img:require('../../../assets/ProductImages/b.jpeg')},
         { name: 'Rustic BreakFast', id: 3,img:require('../../../assets/ProductImages/c.jpeg')},
-        { name: 'Fruit', id: 4,img:require('../../../assets/ProductImages/d.jpeg') },
-        { name: 'Fruit', id: 5 ,img:require('../../../assets/ProductImages/e.jpeg')},
-        { name: 'Fruit', id: 6,img:require('../../../assets/ProductImages/f.jpeg')},
-        { name: 'Fruit', id: 7,img:require('../../../assets/ProductImages/g.jpeg')},
+        { name: 'Banana', id: 4,img:require('../../../assets/ProductImages/d.jpeg') },
+        { name: 'Blitva', id: 5 ,img:require('../../../assets/ProductImages/e.jpeg')},
+        { name: 'Borovnica', id: 6,img:require('../../../assets/ProductImages/f.jpeg')},
+        { name: 'Breskva', id: 7,img:require('../../../assets/ProductImages/g.jpeg')},
         { name: 'Fruit', id: 8,img:require('../../../assets/ProductImages/h.jpeg')},
         { name: 'Fruit', id: 9,img:require('../../../assets/ProductImages/i.jpeg')},
         { name: 'Fruit', id:10,img:require('../../../assets/ProductImages/j.jpeg')}
